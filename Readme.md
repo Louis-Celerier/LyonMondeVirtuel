@@ -1,6 +1,6 @@
 # Lyon Monde Virtuel - Projet M2
 
-## Promotion 2022-2023
+## Promotion M2 Gamagora - Ingénieurie du jeu vidéo - 2022-2023
 
 # Ressources
 
