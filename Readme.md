@@ -38,7 +38,10 @@ GML — Python3DTiles → 3DTiles → Unity
 
 ## Routes
 
-On a utilisé [OSMOSIS](https://github.com/openstreetmap/osmosis/releases/tag/0.48.3) pour l’extraction des routes à partir de fichier .osm téléchargé sur OpenStreetMap. OSMOSIS permet également d’afficher et éditer la carte dans un outil Java.
+1.  Utilisation de données extraites de Data Grand Lyon, contenant la position des routes ainsi que leur largeur.
+2.  Découpage pour obtenir la zone voulue dans QGIS et export au format GeoJSON.
+3.  Parsing du fichier GeoJSOn dans Unity pour obtenir la position des routes.
+4.  Utilisation du plugin Road Architect pour afficher les routes à partir des données. 
 
 ## Arbres, Parc à vélos et autres données[^3]
 [^3]: - Ligne de bus,
@@ -60,13 +63,9 @@ A l'aide d'un [JSON Parser](https://github.com/Bunny83/SimpleJSON) pour facilit�
 
 La méthode d’extraction des bâtiments fait que leurs assets sont déjà présents.
 
-## Routes et trafics
+## Routes
 
-Nous avons cherche plusieurs plugin qui permettrai de faire une simulation d’un trafic de voiture, cependant une majorité des plugins sont payants.
-
-Puis l'on c'est mis en tête de faire notre simulation mais on c'est rendu compte que vu le temps restant, nous n'aurons pas le temps de réaliser le travail demander.
-
-Nous avons finalement trouver un version gratuite du plugin [Global Roads & Traffic](https://assetstore.unity.com/packages/3d/environments/roadways/global-roads-traffic-lite-218045).
+* Road Architect : (https://github.com/MicroGSD/RoadArchitect)
 
 ## Liste des Assets
 
