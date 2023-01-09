@@ -65,9 +65,9 @@ La méthode d’extraction des bâtiments fait que leurs assets sont déjà pré
 
 ## Routes
 
-* Road Architect : (https://github.com/MicroGSD/RoadArchitect)
+On a utilisé [Road Architect](https://github.com/MicroGSD/RoadArchitect) pour les routes.
 
-## Liste des Assets
+## Liste des Assets recuperer sur le Unity Asset Store
 
 [Arbres](https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-pack-vol-1-50418#description)
 [Poubelles](https://assetstore.unity.com/packages/3d/props/waste-can-pbr-224775)
@@ -82,7 +82,7 @@ La méthode d’extraction des bâtiments fait que leurs assets sont déjà pré
 * [**Julien Percheron**](https://github.com/JulienPercheron)
 * [**Julien Martins**](https://github.com/julien-martins)
 * [**Louis Celerier**](https://github.com/Louis-Celerier)
-* [**Lucas Venturini**](https://github.com/venturinilucas)
+* [**Lucas Venturini**](https://github.com/lucasVenturini)
 * [**Mathieu Dagier**](https://github.com/Matda43)
 * [**Nicolas Vivier**](https://github.com/Nicovi15)
 * [**Nils Carron**](https://github.com/NilsCarron)
