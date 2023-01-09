@@ -44,6 +44,8 @@ ExportedObj/
 *.VC.db
 *.geojson
 
+*.geojson
+
 # Unity3D generated meta files
 *.pidb.meta
 *.pdb.meta
