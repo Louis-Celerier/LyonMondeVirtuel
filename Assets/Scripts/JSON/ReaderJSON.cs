@@ -142,21 +142,25 @@ public class ReaderJSON
                        // go.transform.parent = transform;
                        // go.transform.position = randomPosition;
                         float ranromHeight = Random.Range(2, 5);
-                        //go.transform.localScale = new Vector3(10, ranromHeight, 10);
                         if(strate == 1)
                         {
-                            GameObject go = GameObject.Instantiate(a1, randomPosition, Quaternion.identity);
+                            GameObject go = GameObject.Instantiate(a1, Vector3.zero, Quaternion.identity);
                             go.transform.parent = transform;
+                            go.transform.localPosition = randomPosition;
+
                         }
                         else if (strate == 2)
                         {
-                            GameObject go = GameObject.Instantiate(a2, randomPosition, Quaternion.Euler(-90,0,0));
+                            GameObject go = GameObject.Instantiate(a2, Vector3.zero, Quaternion.Euler(-90,0,0));
                             go.transform.parent = transform;
+                            go.transform.localPosition = randomPosition;
+
                         }
                         else
                         {
-                            GameObject go = GameObject.Instantiate(a3, randomPosition, Quaternion.identity);
+                            GameObject go = GameObject.Instantiate(a3, Vector3.zero, Quaternion.identity);
                             go.transform.parent = transform;
+                            go.transform.localPosition = randomPosition;
                         }
                     }
                 }
