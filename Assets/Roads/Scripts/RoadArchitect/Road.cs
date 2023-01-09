@@ -1,0 +1,57 @@
+﻿using GSD.Roads;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEngine.Experimental.Rendering.RayTracingAccelerationStructure;
+
+public class Road
+{
+    private List<Vector3> _nodes;
+    private int _realWidth;
+    private int _pluginWidth;
+
+    public Road(List<Vector3> nodes, int realWidth, int pluginWidth)
+    {
+        _nodes = nodes;
+        _realWidth = realWidth;
+        _pluginWidth = pluginWidth;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    // Affichage de la route avec Road Architect
+    public GSDRoad BuildRoad(ref GSDRoadSystem _roadSystem, bool showGizmo = false)
+    {
+        // Affichage de la route à l'aide de la classe GSDRoadAutomation
+        var road = GSDRoadAutomation.CreateRoad_Programmatically(_roadSystem, ref _nodes);
+
+        // Affichage/dissimulation du gizmo
+        road.opt_GizmosEnabled = showGizmo;
+
+        // Remove terrain modification
+        road.opt_HeightModEnabled = false;
+        road.opt_TreeModEnabled = false;
+        road.opt_DetailModEnabled = false;
+        return road;
+    }
+
+    public void ConfigureRoadAppearance(in GSDRoad road, int lanesCount = 2, GSDRoad.RoadMaterialDropdownEnum material = GSDRoad.RoadMaterialDropdownEnum.Asphalt, float shoulderWidth = 0)
+    {
+        road.opt_tRoadMaterialDropdown = material;
+        road.opt_Lanes = lanesCount; // nombre de voies, pouvant valoir 2, 4 ou 6
+        road.opt_LaneWidth = _pluginWidth; // largeur des voies
+        road.opt_ShoulderWidth = shoulderWidth; // largeur des bandes d'arrêt d'urgence
+    }
+}
