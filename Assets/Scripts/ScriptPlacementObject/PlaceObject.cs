@@ -44,6 +44,15 @@ public class PlaceObject : MonoBehaviour
                 //On récupère les coordonnée
                 double coor1 = FloatParser(lSplit[lSplit.Length - 5 + OffsetJson]); // on parse le string en double avec une fonction perso
                 double coor2 = FloatParser(lSplit[lSplit.Length - 4 + OffsetJson]);
+                string Name = "";
+                int j = 8;
+                while(lSplit[j] != "\"commune\":"){
+                    Name += lSplit[j];
+                    Name += " ";
+                    j++;
+                }
+                Name += lSplit[j+1];
+                Debug.Log(Name);
                 double[] Coord = { (coor1 - OffsetCoordX) * ScaleCoord, (coor2 - OffsetCoordY) * ScaleCoord }; 
 
                 //on les met dans un vector3
@@ -52,6 +61,7 @@ public class PlaceObject : MonoBehaviour
 
                 //On instancie notre modèle
                 GameObject go = Instantiate(ToSpawn, Pos, Quaternion.Euler(initialRotation.x, initialRotation.y, initialRotation.z));
+                go.name = Name;
                 go.transform.localScale = new Vector3(Scale, Scale, Scale);
             }
 
