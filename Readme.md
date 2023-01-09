@@ -70,7 +70,9 @@ Nous avons finalement trouver un version gratuite du plugin [Global Roads & Traf
 
 ## Liste des Assets
 
-[Arbres](https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-pack-vol-1-50418#description)
+[Arbres](https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-pack-vol-1-50418#description
+         https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-9-rainbow-tree-54622
+         https://assetstore.unity.com/packages/3d/vegetation/trees/realistic-tree-10-54724)
 [Poubelles](https://assetstore.unity.com/packages/3d/props/waste-can-pbr-224775)
 [Végétation](https://assetstore.unity.com/packages/3d/environments/smm-stylized-grass-184975)
 
