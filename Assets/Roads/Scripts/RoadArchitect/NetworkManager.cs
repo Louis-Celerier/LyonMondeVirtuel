@@ -1,5 +1,8 @@
+using GeoJSON;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class NetworkManager : MonoBehaviour
@@ -8,6 +11,11 @@ public class NetworkManager : MonoBehaviour
     private NetworkDisplayer _displayer;
     public List<Road> roads;
     [SerializeField] private int _roadsCount;
+
+    [Header("JSON")]
+    [SerializeField] private RoadJsonParser _roadJsonParser;
+    private FeatureCollection _roadsCollection;
+    [SerializeField] private Vector3 offset;
 
     // Start is called before the first frame update
     void Start()
@@ -29,11 +37,30 @@ public class NetworkManager : MonoBehaviour
     public void SetupNetwork()
     {
         Debug.Log("Creating the roads...");
-        for(int i = 0; i < _roadsCount; i++)
+        // Getting the data from JSON file
+        _roadsCollection = _roadJsonParser.ReadRoad();
+        //for(int i = 0; i < _roadsCount; i++)
+        //{
+        //    roads.Add(new Road(_testRoadVertices, 2, 4));
+        //}
+        // Using all roads' data for setting them up
+        int breaking = 0;
+        foreach (var feature in _roadsCollection.features)
         {
-            roads.Add(new Road(_testRoadVertices, 2, 4));
+            if (breaking >= 500) 
+            {
+                break;
+            }
+            List<Vector3> allNewNodes = new List<Vector3>();
+            foreach (var position in feature.geometry.AllPositions())
+            {
+                Vector3 nodePosition = new Vector3(position.latitude, 0f, position.longitude) + offset;
+                allNewNodes.Add(nodePosition);
+            }
+            roads.Add(new Road(allNewNodes, 2, 4));
+            breaking++;
         }
-        Debug.Log("Nodes created : " + roads.Count);
+        Debug.Log("Roads done : " + roads.Count);
     }
 
     public void Refresh()
