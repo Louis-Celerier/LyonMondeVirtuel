@@ -771,7 +771,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1464558376}
-  - component: {fileID: 1464558375}
+  - component: {fileID: 1464558377}
   m_Layer: 0
   m_Name: Trees
   m_TagString: Untagged
@@ -779,25 +779,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1464558375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464558374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a614287d65da4a49bc187419c889ef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  precision: 1
-  strate1: {fileID: 2100000, guid: 169e9cb956cc56b40bc61d2928ddb0ac, type: 2}
-  strate2: {fileID: 2100000, guid: 8173037a610f7b946b43507d54375a02, type: 2}
-  strate3: {fileID: 2100000, guid: 9d98d36ac802cee4b89ca68af0c541da, type: 2}
-  nbS1: 10325
-  nbS2: 8597
-  nbS3: 9812
 --- !u!4 &1464558376
 Transform:
   m_ObjectHideFlags: 0
@@ -806,13 +787,33 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464558374}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 493, y: 0, z: 393}
+  m_LocalPosition: {x: 1538, y: 0, z: 4400}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1464558377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464558374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d11b5ac9a43999439a7518276ad3dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  precision: 10
+  arbre1: {fileID: 114418, guid: be878d9ea17907f4a8068678a5ce7908, type: 3}
+  arbre2: {fileID: 100002, guid: c88e7320d59eae146a4e8d77271628eb, type: 3}
+  arbre3: {fileID: 109824, guid: f6f9e2b8b6b2fdd4ca11c8edc03103b1, type: 3}
+  nbS1: 10165
+  nbS2: 8597
+  nbS3: 9812
+  scale: 0.7
 --- !u!1 &1485971526
 GameObject:
   m_ObjectHideFlags: 0

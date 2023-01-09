@@ -4,7 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -14,7 +13,7 @@ public class ReaderJSON
     public JSONNode CreateFromJSON(string filename)
     {
         Debug.Log("Loading data");
-        string path = Application.dataPath + "/Ressources/" + filename;
+        string path = Application.dataPath + "/Resources/" + filename;
         string jsonString = File.ReadAllText(path);
         return JSON.Parse(jsonString);
     }
@@ -118,7 +117,7 @@ public class ReaderJSON
         return dico;
     }
 
-    public void PlantTrees(Dictionary<int, List<List<Vector3>>> dico, Transform transform, Material s1, Material s2, Material s3, GameObject a1, GameObject a2, GameObject a3)
+    public void PlantTrees(Dictionary<int, List<List<Vector3>>> dico, Transform transform, GameObject a1, GameObject a2, GameObject a3, float scale)
     {
         Debug.Log("Plantation trees");
 
@@ -147,6 +146,7 @@ public class ReaderJSON
                             GameObject go = GameObject.Instantiate(a1, Vector3.zero, Quaternion.identity);
                             go.transform.parent = transform;
                             go.transform.localPosition = randomPosition;
+                            go.transform.localScale = Vector3.one * scale;
 
                         }
                         else if (strate == 2)
@@ -154,13 +154,14 @@ public class ReaderJSON
                             GameObject go = GameObject.Instantiate(a2, Vector3.zero, Quaternion.Euler(-90,0,0));
                             go.transform.parent = transform;
                             go.transform.localPosition = randomPosition;
-
+                            go.transform.localScale = Vector3.one * scale;
                         }
                         else
                         {
                             GameObject go = GameObject.Instantiate(a3, Vector3.zero, Quaternion.identity);
                             go.transform.parent = transform;
                             go.transform.localPosition = randomPosition;
+                            go.transform.localScale = Vector3.one * scale;
                         }
                     }
                 }

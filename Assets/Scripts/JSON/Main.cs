@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Data;
 using System.IO;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Main : MonoBehaviour
@@ -13,10 +12,6 @@ public class Main : MonoBehaviour
 
     [Range(1,100)]
     public int precision;
-
-    public Material strate1;
-    public Material strate2;
-    public Material strate3;
 
     string filename = "vegetationGratteCiel.geojson";
 
@@ -33,12 +28,14 @@ public class Main : MonoBehaviour
     [Range(0, 9812)]
     public int nbS3;
 
+    public float scale;
+
     void Start()
     {
         ReaderJSON rd = new ReaderJSON();
         JSONNode data = rd.CreateFromJSON(filename);
         Dictionary<int, List<List<Vector3>>> dico = rd.Read(data, precision, nbS1, nbS2, nbS3);
-        rd.PlantTrees(dico, this.transform, strate1, strate2, strate3, arbre1, arbre2, arbre3);
+        rd.PlantTrees(dico, this.transform, arbre1, arbre2, arbre3, scale);
 
         Debug.Log("End");
     }
