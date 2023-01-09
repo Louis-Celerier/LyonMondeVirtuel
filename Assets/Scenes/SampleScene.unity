@@ -330,10 +330,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d11b5ac9a43999439a7518276ad3dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  precision: 10
+  precision: 50
   strate1: {fileID: 2100000, guid: 169e9cb956cc56b40bc61d2928ddb0ac, type: 2}
   strate2: {fileID: 2100000, guid: 8173037a610f7b946b43507d54375a02, type: 2}
   strate3: {fileID: 2100000, guid: 9d98d36ac802cee4b89ca68af0c541da, type: 2}
+  arbre1: {fileID: 114418, guid: be878d9ea17907f4a8068678a5ce7908, type: 3}
+  arbre2: {fileID: 100002, guid: 2cc6efd0975a2084caa41d70df3d3dc4, type: 3}
+  arbre3: {fileID: 109824, guid: f6f9e2b8b6b2fdd4ca11c8edc03103b1, type: 3}
   nbS1: 10325
   nbS2: 8597
   nbS3: 9812

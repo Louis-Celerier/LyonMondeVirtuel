@@ -118,7 +118,7 @@ public class ReaderJSON
         return dico;
     }
 
-    public void PlantTrees(Dictionary<int, List<List<Vector3>>> dico, Transform transform, Material s1, Material s2, Material s3)
+    public void PlantTrees(Dictionary<int, List<List<Vector3>>> dico, Transform transform, Material s1, Material s2, Material s3, GameObject a1, GameObject a2, GameObject a3)
     {
         Debug.Log("Plantation trees");
 
@@ -138,24 +138,25 @@ public class ReaderJSON
                     Vector3 randomPosition = new Vector3(ranromX, 0, ranromZ);
                     if (GeometryUtils.PointInPolygon(randomPosition, list))
                     {
-                        GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                        go.transform.parent = transform;
-                        go.transform.position = randomPosition;
+                       // GameObject go = GameObject.CreatePrimitive(PrimitiveType.Cube);
+                       // go.transform.parent = transform;
+                       // go.transform.position = randomPosition;
                         float ranromHeight = Random.Range(2, 5);
-                        go.transform.localScale = new Vector3(10, ranromHeight, 10);
+                        //go.transform.localScale = new Vector3(10, ranromHeight, 10);
                         if(strate == 1)
                         {
-                            Renderer r = go.GetComponent<Renderer>();
-                            r.material = s1;
-                        }else if (strate == 2)
+                            GameObject go = GameObject.Instantiate(a1, randomPosition, Quaternion.identity);
+                            go.transform.parent = transform;
+                        }
+                        else if (strate == 2)
                         {
-                            Renderer r = go.GetComponent<Renderer>();
-                            r.material = s2;
+                            GameObject go = GameObject.Instantiate(a2, randomPosition, Quaternion.Euler(-90,0,0));
+                            go.transform.parent = transform;
                         }
                         else
                         {
-                            Renderer r = go.GetComponent<Renderer>();
-                            r.material = s3;
+                            GameObject go = GameObject.Instantiate(a3, randomPosition, Quaternion.identity);
+                            go.transform.parent = transform;
                         }
                     }
                 }
