@@ -43,6 +43,8 @@ GML — Python3DTiles → 3DTiles → Unity
 3.  Parsing du fichier GeoJSOn dans Unity pour obtenir la position des routes.
 4.  Utilisation du plugin Road Architect pour afficher les routes à partir des données. 
 
+Plus d'informations sur la création des routes : https://docs.google.com/document/d/1x84gQMGi8XLAXiVuYlifSt--997bRlF-CE70tCNNCvM
+
 ## Arbres, Parc à vélos et autres données[^3]
 [^3]: - Ligne de bus,
 Arbres référencés par Grand Lyon,
