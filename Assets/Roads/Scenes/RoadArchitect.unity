@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.574817, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -404,6 +404,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4630858150888409749, guid: 27b3dc8c030983f45bbbc6ee943c5889, type: 3}
+      propertyPath: SplatResoWidth
+      value: 1024
+      objectReference: {fileID: 0}
+    - target: {fileID: 4630858150888409749, guid: 27b3dc8c030983f45bbbc6ee943c5889, type: 3}
+      propertyPath: SplatResoHeight
+      value: 1024
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27b3dc8c030983f45bbbc6ee943c5889, type: 3}
 --- !u!1001 &4786910737762990195
@@ -418,6 +426,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 401714913}
     - target: {fileID: 4786910738396965320, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786910738396965320, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
+      propertyPath: startRoadIndex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786910738396965320, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
+      propertyPath: minRoadVertices
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786910738396965320, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
       propertyPath: _loopingStepsCount
       value: 1
       objectReference: {fileID: 0}
@@ -427,11 +447,15 @@ PrefabInstance:
       objectReference: {fileID: 1792065578}
     - target: {fileID: 4786910738396965320, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
       propertyPath: _displayedRoadPercentage
-      value: 0.192
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4786910738396965320, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
+      propertyPath: _testRoadVertices.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4786910738396965321, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
       propertyPath: _enablingGizmo
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4786910738396965322, guid: 5b0ef62182285fe42aef7dc436057110, type: 3}
       propertyPath: m_RootOrder

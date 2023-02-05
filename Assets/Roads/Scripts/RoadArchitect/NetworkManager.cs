@@ -1,16 +1,11 @@
 using GeoJSON;
-using System.Collections;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class NetworkManager : MonoBehaviour
 {
-    [SerializeField] private List<Vector3> _testRoadVertices;
     private NetworkDisplayer _displayer;
     public List<Road> roads;
-    [SerializeField] private int _roadsCount;
 
     [Header("JSON")]
     [SerializeField] private RoadJsonParser _roadJsonParser;
@@ -19,6 +14,8 @@ public class NetworkManager : MonoBehaviour
     [SerializeField] private Vector3 offset;
 
     [Header("Optimization settings")]
+    [SerializeField] private int startRoadIndex = 0;                                        // Start of road creation, ignore all roads before these index
+    [SerializeField, Range(0,10)] private int minRoadVertices = 3;
     [SerializeField, Range(0, 1)] private float _displayedRoadPercentage;
     [SerializeField, Range(1, 10)] private int _loopingStepsCount;
 
@@ -33,47 +30,43 @@ public class NetworkManager : MonoBehaviour
         Refresh();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void SetupNetwork()
     {
         Debug.Log("Creating the roads...");
         // Getting the data from JSON file
         _roadsCollection = _roadJsonParser.ReadRoad();
-        //for(int i = 0; i < _roadsCount; i++)
-        //{
-        //    roads.Add(new Road(_testRoadVertices, 2, 4));
-        //}
+        
         // Using all roads' data for setting them up
-        int breaking = 0;
-        foreach (var feature in _roadsCollection.features)
+        int maxDisplayRoad = startRoadIndex + (int)(_roadsCollection.features.Count * _displayedRoadPercentage);
+        Debug.LogError("Breaking : " + maxDisplayRoad);
+        
+        for (int i = startRoadIndex; i < maxDisplayRoad; i++)
         {
-            if (breaking >= _roadsCollection.features.Count * _displayedRoadPercentage) 
-            {
-                break;
-            }
-            List<Vector3> allNewNodes = new List<Vector3>();
-            //foreach (var position in feature.geometry.AllPositions())
-            //{
-            //    Vector3 nodePosition = new Vector3(position.latitude, 0f, position.longitude) + offset;
-            //    allNewNodes.Add(nodePosition);
-            //}
+            var feature = _roadsCollection.features[i];
             List<PositionObject> allPositions = feature.geometry.AllPositions();
+            
             int chosenLoopingStep = 1;
-            // Afin d'éviter que des routes ne soient pas affichées, on vérifie le nombre de noeuds. Une route a besoin de 2 noeuds minimum pour être affichée.
+            
+            // Afin d'ï¿½viter que des routes ne soient pas affichï¿½es, on vï¿½rifie le nombre de noeuds. Une route a besoin de 2 noeuds minimum pour ï¿½tre affichï¿½e.
+            if (allPositions.Count <= minRoadVertices)
+            {
+                Debug.LogWarning("Not enough vertices to display a road.");
+                continue;
+            }
+            
             if (allPositions.Count >= 2 && allPositions.Count / chosenLoopingStep >= 2)
                 chosenLoopingStep = _loopingStepsCount;
-            for (int i = 0; i < allPositions.Count; i = i + chosenLoopingStep)
+            
+            List<Vector3> allNewNodes = new List<Vector3>();
+            for (int j = 0; j < allPositions.Count; j = j + chosenLoopingStep)
             {
-                Vector3 nodePosition = new Vector3(allPositions[i].latitude, 0f, allPositions[i].longitude) + offset;
+                Vector3 nodePosition = new Vector3(allPositions[j].latitude, 0f, allPositions[j].longitude) + offset;
                 allNewNodes.Add(nodePosition);
             }
-            roads.Add(new Road(allNewNodes, _roadGeoJsonDisplayer.GetWidth(feature), _roadGeoJsonDisplayer.GetNumLane(feature)));
-            breaking++;
+
+            var road = new Road(allNewNodes, _roadGeoJsonDisplayer.GetWidth(feature),
+                _roadGeoJsonDisplayer.GetNumLane(feature));
+            roads.Add(road);
         }
         Debug.Log("Roads done : " + roads.Count);
     }
