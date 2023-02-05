@@ -1,10 +1,6 @@
 ﻿using GSD.Roads;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
-using static UnityEngine.Experimental.Rendering.RayTracingAccelerationStructure;
 
 public class Road
 {
@@ -18,18 +14,6 @@ public class Road
         _nodes = nodes;
         _pluginWidth = pluginWidth;
         _pluginLanesCount = pluginLanesCount;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     // Affichage de la route avec Road Architect

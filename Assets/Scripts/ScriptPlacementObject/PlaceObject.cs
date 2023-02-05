@@ -1,30 +1,22 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PlaceObject : MonoBehaviour
 {
     // Start is called before the first frame update
 
     public GameObject ToSpawn; // objet a spawn
-    public double OffsetCoordX, OffsetCoordY; // offset des coordonnées
-    public float ScaleCoord = 1; // scale des coordonnées;
+    public double OffsetCoordX, OffsetCoordY; // offset des coordonnï¿½es
+    public float ScaleCoord = 1; // scale des coordonnï¿½es;
     public float Scale = 1;
     public Vector3 initialRotation = new Vector3(0, 0, 0); // rotation initial du model lorsqu'il est spawn
     public string ToRead = "Assets/ScriptPlacementObject/data_parcstationvelo.geojson"; // fichier Json a lire;
-    public int OffsetJson = 0; // au cas ou les coordonnée ne soient pas au même endroit a partir de la fin du fichier, 
+    public int OffsetJson = 0; // au cas ou les coordonnï¿½e ne soient pas au mï¿½me endroit a partir de la fin du fichier, 
     void Start()
     {
         StreamReader file = new StreamReader(ToRead);
 
-        // on saute les 6 première ligne du fichier qui ne servent a rien
+        // on saute les 6 premiï¿½re ligne du fichier qui ne servent a rien
         for (int i = 0; i < 5; i++)
         {
             string line = file.ReadLine(); 
@@ -37,11 +29,11 @@ public class PlaceObject : MonoBehaviour
             string line = file.ReadLine();
             string[] lSplit = line.Split(" ");
 
-            //si la ligne est une ligne de donnée
+            //si la ligne est une ligne de donnï¿½e
             if (lSplit.Length > 2)
             {
 
-                //On récupère les coordonnée
+                //On rï¿½cupï¿½re les coordonnï¿½e
                 double coor1 = FloatParser(lSplit[lSplit.Length - 5 + OffsetJson]); // on parse le string en double avec une fonction perso
                 double coor2 = FloatParser(lSplit[lSplit.Length - 4 + OffsetJson]);
                 string Name = "";
@@ -59,7 +51,7 @@ public class PlaceObject : MonoBehaviour
                 Vector3 Pos = new Vector3((float)Coord[0], 0, (float)Coord[1]);
 
 
-                //On instancie notre modèle
+                //On instancie notre modï¿½le
                 GameObject go = Instantiate(ToSpawn, Pos, Quaternion.Euler(initialRotation.x, initialRotation.y, initialRotation.z));
                 go.name = Name;
                 go.transform.localScale = new Vector3(Scale, Scale, Scale);

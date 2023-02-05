@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44768214, g: 0.49765748, b: 0.5753876, a: 1}
+  m_IndirectSpecularColor: {r: 0.4476822, g: 0.49765754, b: 0.5753876, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &315566671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,13 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05d7e10ad25c55b45b2069912f0d673a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ToSpawn: {fileID: 271768513379186469, guid: 3ecf0ca9594abf244844cf5872139e9f, type: 3}
-  OffsetCoordX: 1846650
-  OffsetCoordY: 5176767.2
-  Scale: 1
-  initialRotation: {x: 0, y: 0, z: 0}
-  ToRead: Assets/ScriptVelo/data_parcstationvelo.geojson
-  OffsetJson: 0
 --- !u!4 &315566672
 Transform:
   m_ObjectHideFlags: 0

@@ -42,9 +42,6 @@ ExportedObj/
 *.mdb
 *.opendb
 *.VC.db
-*.geojson
-
-*.geojson
 
 # Unity3D generated meta files
 *.pidb.meta
